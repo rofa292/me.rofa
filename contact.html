@@ -1,83 +1,173 @@
+
+
+
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" >
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>تواصل معنا - صيدلية ROFA MOHAMED</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      direction: rtl;
-      background-color: #f5fbff;
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
     }
-    header, footer {
-      background-color: #007b83;
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      direction: rtl;
+      background: linear-gradient(135deg, #e0f0ff, #ffffff);
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: #006799;
       color: white;
+      padding: 40px 20px;
       text-align: center;
-      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 103, 153, 0.3);
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      font-family: 'Segoe UI Black', 'Arial Black', sans-serif;
+      letter-spacing: 3px;
+      font-size: 2.8rem;
+      position: relative;
+    }
+    header::after {
+      content: "✨ ROFA MOHAMED ✨";
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.1rem;
+      color: #a0d8ff;
+      letter-spacing: 4px;
+      font-weight: 600;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     nav {
-      background-color: #005f66;
-      text-align: center;
-      padding: 10px;
+      background: #004d73;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      box-shadow: 0 3px 6px rgba(0, 77, 115, 0.3);
     }
     nav a {
-      color: white;
-      margin: 0 15px;
+      color: #d0e8ff;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 5px 0;
     }
-    .container {
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 3px;
+      background: #00aaff;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+    nav a:hover,
+    nav a:focus {
+      color: #00aaff;
+    }
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 60%;
+    }
+    main {
+      flex-grow: 1;
       max-width: 600px;
-      margin: 40px auto;
+      margin: 40px auto 80px;
+      padding: 0 20px;
       background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.07);
+      padding: 30px;
+    }
+    main h2 {
+      font-size: 2.2rem;
+      color: #005a8c;
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-align: center;
     }
     label {
       display: block;
-      margin-top: 15px;
-      font-weight: bold;
-      color: #007b83;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #007bbf;
+      font-size: 1.05rem;
     }
     input, textarea {
       width: 100%;
-      padding: 10px;
-      margin-top: 8px;
-      border-radius: 5px;
+      padding: 12px 15px;
+      margin-bottom: 18px;
       border: 1px solid #ccc;
-      font-size: 16px;
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #007bbf;
+      box-shadow: 0 0 6px #a3d4ff;
     }
     button {
-      margin-top: 20px;
-      background-color: #007b83;
+      background: #007bbf;
       color: white;
       border: none;
-      padding: 12px 20px;
-      border-radius: 5px;
+      padding: 14px 28px;
+      border-radius: 20px;
+      font-size: 1.2rem;
+      font-weight: 700;
       cursor: pointer;
+      transition: background 0.3s ease;
+      width: 100%;
     }
     button:hover {
-      background-color: #005f66;
+      background: #005f8a;
     }
     .whatsapp {
       position: fixed;
-      bottom: 15px;
-      left: 15px;
-      z-index: 999;
+      bottom: 20px;
+      left: 20px;
+      z-index: 9999;
+      transition: transform 0.3s ease;
+    }
+    .whatsapp:hover {
+      transform: scale(1.1);
     }
     .whatsapp img {
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+      border-radius: 50%;
+    }
+    @media (max-width: 600px) {
+      header {
+        font-size: 1.8rem;
+        padding-bottom: 80px;
+      }
+      main {
+        margin: 30px 15px 80px;
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h2>تواصل معنا</h2>
+    ROFA MOHAMED
   </header>
 
   <nav>
@@ -86,38 +176,37 @@
     <a href="contact.html">تواصل معنا</a>
   </nav>
 
-  <div class="container">
-    <form onsubmit="submitForm(event)">
+  <main>
+    <h2>تواصل معنا</h2>
+    <form onsubmit="submitForm(event)" novalidate>
       <label for="name">الاسم الكامل:</label>
-      <input type="text" id="name" required placeholder="اكتب اسمك هنا">
+      <input type="text" id="name" name="name" placeholder="اكتب اسمك هنا" required />
 
       <label for="email">البريد الإلكتروني:</label>
-      <input type="email" id="email" required placeholder="example@email.com">
+      <input type="email" id="email" name="email" placeholder="example@email.com" required />
 
-      <label for="message">الرسالة:</label>
-      <textarea id="message" rows="5" required placeholder="اكتب رسالتك هنا"></textarea>
+      <label for="message">رسالتك:</label>
+      <textarea id="message" name="message" rows="5" placeholder="اكتب رسالتك هنا" required></textarea>
 
       <button type="submit">إرسال</button>
     </form>
-  </div>
+  </main>
 
   <footer>
     &copy; 2025 صيدلية ROFA MOHAMED
   </footer>
 
-  <a class="whatsapp" href="https://wa.me/218912345678" target="_blank">
+  <a class="whatsapp" href="https://wa.me/218912345678" target="_blank" aria-label="واتساب">
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="واتساب">
   </a>
 
   <script>
-    function submitForm(event) {
-      event.preventDefault();
-      alert("تم إرسال رسالتك بنجاح!");
-      document.querySelector("form").reset();
+    function submitForm(e) {
+      e.preventDefault();
+      alert("تم إرسال رسالتك بنجاح! سنتواصل معك قريبًا.");
+      e.target.reset();
     }
   </script>
 
 </body>
 </html>
-
-
