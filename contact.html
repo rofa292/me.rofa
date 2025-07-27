@@ -2,42 +2,122 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>تواصل معنا - صيدلية ROFA</title>
+  <title>تواصل معنا - صيدلية ROFA MOHAMED</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { font-family: 'Segoe UI', sans-serif; direction: rtl; background-color: #f0f4f8; margin: 0; padding: 0; }
-    header, nav, footer { background-color: #007b83; color: white; text-align: center; padding: 20px; }
-    nav a { color: white; margin: 0 20px; text-decoration: none; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
-    .container { max-width: 800px; margin: 30px auto; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    label { display: block; margin-top: 15px; }
-    input, textarea { width: 100%; padding: 10px; margin-top: 5px; border-radius: 8px; border: 1px solid #ccc; }
-    button { margin-top: 20px; background-color: #007b83; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; }
-    button:hover { background-color: #005c5c; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      direction: rtl;
+      background-color: #f5fbff;
+    }
+    header, footer {
+      background-color: #007b83;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    nav {
+      background-color: #005f66;
+      text-align: center;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #007b83;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 20px;
+      background-color: #007b83;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005f66;
+    }
+    .whatsapp {
+      position: fixed;
+      bottom: 15px;
+      left: 15px;
+      z-index: 999;
+    }
+    .whatsapp img {
+      width: 50px;
+      height: 50px;
+    }
   </style>
 </head>
 <body>
-  <header><h1>صيدلية ROFA MOHAMED</h1></header>
+
+  <header>
+    <h2>تواصل معنا</h2>
+  </header>
+
   <nav>
     <a href="index.html">الرئيسية</a>
     <a href="order.html">طلب دواء</a>
     <a href="contact.html">تواصل معنا</a>
   </nav>
+
   <div class="container">
-    <h2>📞 تواصل معنا</h2>
-    <form onsubmit="event.preventDefault(); alert('📨 تم إرسال رسالتك بنجاح!');">
+    <form onsubmit="submitForm(event)">
       <label for="name">الاسم الكامل:</label>
-      <input type="text" id="name" required>
+      <input type="text" id="name" required placeholder="اكتب اسمك هنا">
 
       <label for="email">البريد الإلكتروني:</label>
-      <input type="email" id="email" required>
+      <input type="email" id="email" required placeholder="example@email.com">
 
-      <label for="message">رسالتك:</label>
-      <textarea id="message" rows="5" required></textarea>
+      <label for="message">الرسالة:</label>
+      <textarea id="message" rows="5" required placeholder="اكتب رسالتك هنا"></textarea>
 
       <button type="submit">إرسال</button>
     </form>
   </div>
-  <footer>&copy; 2025 جميع الحقوق محفوظة - صيدلية ROFA MOHAMED</footer>
+
+  <footer>
+    &copy; 2025 صيدلية ROFA MOHAMED
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/218912345678" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="واتساب">
+  </a>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+      alert("تم إرسال رسالتك بنجاح!");
+      document.querySelector("form").reset();
+    }
+  </script>
+
 </body>
 </html>
+
 
