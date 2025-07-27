@@ -1,162 +1,68 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" >
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>طلب الأدوية - صيدلية ROFA MOHAMED</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      direction: rtl;
-      background-color: #f0f8ff;
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
     }
-    header, footer {
-      background-color: #007b83;
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      direction: rtl;
+      background: linear-gradient(135deg, #e0f0ff, #ffffff);
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: #006799;
       color: white;
+      padding: 40px 20px;
       text-align: center;
-      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 103, 153, 0.3);
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      font-family: 'Segoe UI Black', 'Arial Black', sans-serif;
+      letter-spacing: 3px;
+      font-size: 2.8rem;
+      position: relative;
+    }
+    header::after {
+      content: "✨ ROFA MOHAMED ✨";
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.1rem;
+      color: #a0d8ff;
+      letter-spacing: 4px;
+      font-weight: 600;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     nav {
-      background-color: #005f66;
-      text-align: center;
-      padding: 10px;
+      background: #004d73;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      box-shadow: 0 3px 6px rgba(0, 77, 115, 0.3);
     }
     nav a {
-      color: white;
-      margin: 0 15px;
+      color: #d0e8ff;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 5px 0;
     }
-    .container {
-      padding: 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
-    .product {
-      background-color: white;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .product h3 {
-      color: #007b83;
-    }
-    .product button {
-      background-color: #007b83;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .cart {
-      margin: 30px 20px;
-      background-color: #e6f9f9;
-      padding: 15px;
-      border-radius: 10px;
-    }
-    .cart ul {
-      list-style: none;
-      padding: 0;
-    }
-    .cart li {
-      padding: 8px 0;
-      border-bottom: 1px solid #ccc;
-    }
-    .whatsapp {
-      position: fixed;
-      bottom: 15px;
-      left: 15px;
-      z-index: 999;
-    }
-    .whatsapp img {
-      width: 50px;
-      height: 50px;
-    }
-  </style>
-</head>
-<body>
+    nav a::after {
+      content: "";
+      position: absolute;
+      b
 
-  <header>
-    <h2>طلب الأدوية</h2>
-  </header>
-
-  <nav>
-    <a href="index.html">الرئيسية</a>
-    <a href="order.html">طلب دواء</a>
-    <a href="contact.html">تواصل معنا</a>
-  </nav>
-
-  <section class="container">
-    <div class="product">
-      <h3>بانادول</h3>
-      <p>مسكن ألم وخافض حرارة</p>
-      <button onclick="addToCart('بانادول')">أضف إلى السلة</button>
-    </div>
-    <div class="product">
-      <h3>فولتارين</h3>
-      <p>مرهم للآلام العضلية</p>
-      <button onclick="addToCart('فولتارين')">أضف إلى السلة</button>
-    </div>
-    <div class="product">
-      <h3>أموكسيسيلين</h3>
-      <p>مضاد حيوي</p>
-      <button onclick="addToCart('أموكسيسيلين')">أضف إلى السلة</button>
-    </div>
-    <!-- أضف المزيد حسب الحاجة -->
-  </section>
-
-  <section class="cart">
-    <h3>سلة المشتريات:</h3>
-    <ul id="cart-items"></ul>
-    <button onclick="placeOrder()">إتمام الطلب</button>
-  </section>
-
-  <footer>
-    &copy; 2025 صيدلية ROFA MOHAMED
-  </footer>
-
-  <a class="whatsapp" href="https://wa.me/218912345678" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="واتساب">
-  </a>
-
-  <script>
-    const cart = [];
-
-    function addToCart(item) {
-      cart.push(item);
-      updateCart();
-    }
-
-    function updateCart() {
-      const list = document.getElementById('cart-items');
-      list.innerHTML = "";
-      cart.forEach((item, index) => {
-        list.innerHTML += `<li>${item} <button onclick="removeItem(${index})">❌</button></li>`;
-      });
-    }
-
-    function removeItem(index) {
-      cart.splice(index, 1);
-      updateCart();
-    }
-
-    function placeOrder() {
-      if (cart.length === 0) {
-        alert("سلة المشتريات فارغة!");
-        return;
-      }
-      alert("تم إرسال طلبك بنجاح!");
-      cart.length = 0;
-      updateCart();
-    }
-  </script>
-
-</body>
-</html>
 
 
