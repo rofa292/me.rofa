@@ -1,71 +1,195 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" >
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>صيدلية ROFA MOHAMED</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body {
+    /* Reset بسيط */
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       direction: rtl;
-      background-color: #f0f8ff;
+      background: linear-gradient(135deg, #e0f0ff, #ffffff);
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
+
     header {
-      background-color: #007b83;
+      background: #006799;
       color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    nav {
-      background-color: #005f66;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .hero {
       padding: 60px 20px;
       text-align: center;
-      background-color: #ffffff;
+      box-shadow: 0 4px 15px rgba(0, 103, 153, 0.3);
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
     }
-    .hero h2 {
-      color: #007b83;
-      font-size: 32px;
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
     }
-    .hero p {
-      font-size: 18px;
-      color: #444;
+
+    header p {
+      font-size: 1.3rem;
+      font-weight: 300;
+      opacity: 0.85;
     }
-    footer {
-      background-color: #007b83;
-      color: white;
+
+    nav {
+      background: #004d73;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      box-shadow: 0 3px 6px rgba(0, 77, 115, 0.3);
+    }
+
+    nav a {
+      color: #d0e8ff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 5px 0;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 3px;
+      background: #00aaff;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #00aaff;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 60%;
+    }
+
+    main {
+      flex-grow: 1;
+      max-width: 1100px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
       text-align: center;
-      padding: 15px;
     }
+
+    main h2 {
+      font-size: 2.2rem;
+      color: #005a8c;
+      margin-bottom: 15px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+    }
+
+    main p {
+      font-size: 1.15rem;
+      color: #444;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 25px 20px;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .feature-card h3 {
+      color: #007bbf;
+      margin-bottom: 12px;
+      font-size: 1.4rem;
+    }
+
+    .feature-card p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    footer {
+      background: #003f5c;
+      color: #b0c7db;
+      text-align: center;
+      padding: 18px 10px;
+      font-size: 0.9rem;
+      box-shadow: inset 0 1px 3px rgba(255,255,255,0.15);
+      margin-top: auto;
+    }
+
+    /* زر واتساب */
     .whatsapp {
       position: fixed;
-      bottom: 15px;
-      left: 15px;
-      z-index: 999;
+      bottom: 20px;
+      left: 20px;
+      z-index: 9999;
+      transition: transform 0.3s ease;
+    }
+    .whatsapp:hover {
+      transform: scale(1.1);
     }
     .whatsapp img {
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+      border-radius: 50%;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      main h2 {
+        font-size: 1.7rem;
+      }
+      nav {
+        gap: 15px;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>مرحبا بكم في صيدلية ROFA MOHAMED</h1>
+    <h1>صيدلية ROFA MOHAMED</h1>
+    <p>العناية بصحتك أمانة وهدفنا راحتك</p>
   </header>
 
   <nav>
@@ -74,20 +198,36 @@
     <a href="contact.html">تواصل معنا</a>
   </nav>
 
-  <section class="hero">
-    <h2>أدوية موثوقة وصحة أفضل</h2>
-    <p>نحن هنا لخدمتكم على مدار الساعة. اطلب الأدوية الآن بسهولة وراحة.</p>
-  </section>
+  <main>
+    <h2>خدماتنا المميزة</h2>
+    <p>نوفر لك أفضل الأدوية الأصلية، استشارات مجانية، وخدمة توصيل سريعة إلى باب منزلك.</p>
+
+    <div class="features">
+      <div class="feature-card">
+        <h3>أدوية أصلية 100%</h3>
+        <p>منتجاتنا تأتي من شركات عالمية موثوقة لضمان صحتك وسلامتك.</p>
+      </div>
+      <div class="feature-card">
+        <h3>استشارات طبية</h3>
+        <p>فريقنا الطبي مستعد للإجابة على استفساراتك ومساعدتك في اختيار الدواء المناسب.</p>
+      </div>
+      <div class="feature-card">
+        <h3>توصيل سريع</h3>
+        <p>نقدم خدمة توصيل سريعة وموثوقة في مدينتك لضمان وصول الطلبات في الوقت المحدد.</p>
+      </div>
+    </div>
+  </main>
 
   <footer>
-    &copy; 2025 جميع الحقوق محفوظة - ROFA MOHAMED
+    &copy; 2025 صيدلية ROFA MOHAMED - جميع الحقوق محفوظة.
   </footer>
 
-  <a class="whatsapp" href="https://wa.me/218912345678" target="_blank">
+  <a class="whatsapp" href="https://wa.me/218912345678" target="_blank" aria-label="واتساب">
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="واتساب">
   </a>
 
 </body>
 </html>
+
 
 
