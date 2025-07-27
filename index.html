@@ -1,127 +1,29 @@
-
 <!DOCTYPE html>
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>صيدلية ROFA MOHAMED</title>
+  <title>الرئيسية - صيدلية ROFA</title>
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      direction: rtl;
-      background-color: #f0f4f8;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #007B83;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      background-color: #005f63;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background-color: white;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-    th, td {
-      padding: 12px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-    }
-    th {
-      background-color: #00a8a8;
-      color: white;
-    }
-    tr:hover {
-      background-color: #f1f1f1;
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background-color: #007B83;
-      color: white;
-      margin-top: 30px;
-    }
+    body { font-family: 'Segoe UI', sans-serif; direction: rtl; background-color: #f0f4f8; margin: 0; padding: 0; }
+    header, nav, footer { background-color: #007b83; color: white; text-align: center; padding: 20px; }
+    nav a { color: white; margin: 0 20px; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    .container { max-width: 1000px; margin: 30px auto; padding: 20px; }
+    h2 { color: #007b83; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>صيدلية ROFA MOHAMED</h1>
-    <p>العنوان: ليبيا - الخمس</p>
-  </header>
+  <header><h1>صيدلية ROFA MOHAMED</h1></header>
   <nav>
     <a href="index.html">الرئيسية</a>
     <a href="order.html">طلب دواء</a>
     <a href="contact.html">تواصل معنا</a>
   </nav>
   <div class="container">
-    <input type="text" id="searchInput" placeholder="ابحث عن اسم دواء...">
-    <table id="medicineTable">
-      <thead>
-        <tr>
-          <th>اسم الدواء</th>
-          <th>السعر (د.ل)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>بانادول</td><td>8.00</td></tr>
-        <tr><td>أموكسيسيلين</td><td>12.50</td></tr>
-        <tr><td>بروفين</td><td>10.00</td></tr>
-        <tr><td>فولتارين جل</td><td>14.00</td></tr>
-        <tr><td>باراسيتامول</td><td>7.00</td></tr>
-        <tr><td>ريني</td><td>6.00</td></tr>
-        <tr><td>دافلون</td><td>22.00</td></tr>
-        <tr><td>كونجستال</td><td>9.50</td></tr>
-        <tr><td>هيستازين</td><td>5.00</td></tr>
-        <tr><td>أوجمنتين</td><td>18.00</td></tr>
-      </tbody>
-    </table>
+    <h2>مرحباً بكم في صيدلية ROFA!</h2>
+    <p>نحن نقدم أفضل الأدوية والخدمات بأعلى جودة وبأسعار مناسبة.</p>
   </div>
-  <footer>
-    &copy; 2025 صيدلية ROFA MOHAMED - جميع الحقوق محفوظة
-  </footer>
-  <script>
-    const searchInput = document.getElementById("searchInput");
-    const table = document.getElementById("medicineTable");
-    const rows = table.getElementsByTagName("tr");
-    searchInput.addEventListener("keyup", function () {
-      const filter = searchInput.value.toLowerCase();
-      for (let i = 1; i < rows.length; i++) {
-        const td = rows[i].getElementsByTagName("td")[0];
-        if (td) {
-          const textValue = td.textContent || td.innerText;
-          rows[i].style.display = textValue.toLowerCase().includes(filter) ? "" : "none";
-        }
-      }
-    });
-  </script>
+  <footer>&copy; 2025 جميع الحقوق محفوظة - صيدلية ROFA MOHAMED</footer>
 </body>
 </html>
+
