@@ -1,77 +1,43 @@
-
 <!DOCTYPE html>
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>تواصل معنا - صيدلية ROFA MOHAMED</title>
+  <title>تواصل معنا - صيدلية ROFA</title>
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      direction: rtl;
-      background-color: #f8fbfc;
-      margin: 0;
-      padding: 0;
-    }
-    header, nav, footer {
-      background-color: #007B83;
-      color: white;
-      text-align: center;
-      padding: 15px;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      max-width: 500px;
-      margin: 30px auto;
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    input, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      font-size: 16px;
-    }
-    button {
-      background-color: #007B83;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-    button:hover {
-      background-color: #005c5c;
-    }
+    body { font-family: 'Segoe UI', sans-serif; direction: rtl; background-color: #f0f4f8; margin: 0; padding: 0; }
+    header, nav, footer { background-color: #007b83; color: white; text-align: center; padding: 20px; }
+    nav a { color: white; margin: 0 20px; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    .container { max-width: 800px; margin: 30px auto; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    label { display: block; margin-top: 15px; }
+    input, textarea { width: 100%; padding: 10px; margin-top: 5px; border-radius: 8px; border: 1px solid #ccc; }
+    button { margin-top: 20px; background-color: #007b83; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; }
+    button:hover { background-color: #005c5c; }
   </style>
 </head>
 <body>
-  <header>
-    <h2>تواصل معنا</h2>
-  </header>
+  <header><h1>صيدلية ROFA MOHAMED</h1></header>
   <nav>
     <a href="index.html">الرئيسية</a>
     <a href="order.html">طلب دواء</a>
     <a href="contact.html">تواصل معنا</a>
   </nav>
   <div class="container">
-    <label>اسمك:</label>
-    <input type="text" placeholder="اكتب اسمك الكامل">
-    <label>البريد الإلكتروني:</label>
-    <input type="email" placeholder="example@email.com">
-    <label>رسالتك:</label>
-    <textarea rows="5" placeholder="اكتب رسالتك هنا"></textarea>
-    <button onclick="alert('تم إرسال رسالتك!')">إرسال</button>
+    <h2>📞 تواصل معنا</h2>
+    <form onsubmit="event.preventDefault(); alert('📨 تم إرسال رسالتك بنجاح!');">
+      <label for="name">الاسم الكامل:</label>
+      <input type="text" id="name" required>
+
+      <label for="email">البريد الإلكتروني:</label>
+      <input type="email" id="email" required>
+
+      <label for="message">رسالتك:</label>
+      <textarea id="message" rows="5" required></textarea>
+
+      <button type="submit">إرسال</button>
+    </form>
   </div>
-  <footer>
-    &copy; 2025 صيدلية ROFA MOHAMED
-  </footer>
+  <footer>&copy; 2025 جميع الحقوق محفوظة - صيدلية ROFA MOHAMED</footer>
 </body>
 </html>
+
